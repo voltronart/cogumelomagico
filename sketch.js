@@ -40,16 +40,16 @@ function setup() {
  }
 
 	//Create the Bodies Here.
- chao = Bodies.rectangle(300,400,20,20,options);
+ chao = Bodies.rectangle(300,400,600,10,options);
  World.add(world,chao);
 	 
- parede = Bodies.rectangle(370,370,20,20,options);
+ parede = Bodies.rectangle(370,370,10,50,options);
  World.add(world,parede);
 
-  parede2 = Bodies.rectangle(500,370,20,20,options);
+  parede2 = Bodies.rectangle(500,370,10,50,options);
   World.add(world,parede2);
  
-  bola = Bodies.circle(100,200,20,bola_options);
+  bola = Bodies.circle(100,200,18,bola_options);
   World.add(world,bola);
  
   
@@ -69,10 +69,20 @@ function draw() {
  
   ellipseMode(RADIUS);
   fill('orange')
-  ellipse(bola.position.x,bola.position.y,10);
+  ellipse(bola.position.x,bola.position.y,18);
 
+  if(keyDown('space')){
+      Matter.Body.applyForce(bola,bola.position,{x:10,y:-10})
+      
+
+  }
+  
+  
   drawSprites();
  
+
+
+
 }
 
 
